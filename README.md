@@ -1,4 +1,4 @@
-# Moon Phase Demo 🌕🌖🌗🌘🌑
+# Moon Phase 🌕🌖🌗🌘🌑
 
 ## Overview
 
