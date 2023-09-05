@@ -1,4 +1,4 @@
-# Moon Phase Demo 🌕🌖🌗🌘🌑
+# Moon Phase 🌕🌖🌗🌘🌑
 
 ## Overview
 
@@ -24,7 +24,7 @@ The Moon Phase Demo is a web development project designed to showcase the power 
 
 ### HTMX 🌐
 
-- **File**: [`src/input.css`](https://github.com/donedgardo/moon_phase_demo/blob/main/src/input.css), [`static/output.css`](https://github.com/donedgardo/moon_phase_demo/blob/main/static/output.css)
+- **File**: [`src/main.rs`](https://github.com/donedgardo/moon_phase_demo/blob/main/src/main.rs), [`src/router/mod.rs`](https://github.com/donedgardo/moon_phase_demo/blob/main/src/router/mod.rs)
 - **Purpose**: HTMX allows you to access AJAX, CSS Transitions, WebSockets, and Server Sent Events directly in HTML, without requiring any JavaScript. It's used here to create a dynamic and interactive frontend.
 
 ### Tailwind CSS 💨
