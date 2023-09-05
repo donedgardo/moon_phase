@@ -4,6 +4,8 @@
 
 The Moon Phase Demo is a web development project designed to showcase the power of modern web technologies like HTMX and Rust. This project serves as a playground for sharpening skills with these new tools, offering a practical example of how they can be used in tandem to create a dynamic and efficient web application.
 
+🔗 **Live Demo**: [https://moon.edgardocarreras.com/](https://moon.edgardocarreras.com/)
+
 ## Table of Contents
 
 - [Overview](#overview)
