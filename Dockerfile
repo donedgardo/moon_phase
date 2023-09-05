@@ -3,10 +3,10 @@ FROM rust:latest AS build
 
 # Create a new empty shell project to cache depenency builds
 RUN USER=root cargo new moon-phases
+RUN ls -al
 WORKDIR /moon-phases
 
 # Copy over your manifests
-RUN ls -al
 COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
 
