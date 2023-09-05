@@ -1,0 +1,14 @@
+[tasks.build]
+command = "cargo"
+args = ["build"]
+
+[tasks.run]
+command = "cargo"
+args = ["run",  "--bin=moon-phases"]
+
+[tasks.custom-css]
+command = "cargo"
+args = ["run",  "--bin=build-css"]
+
+[tasks.dev]
+dependencies = ["custom-css", "run"]

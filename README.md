@@ -53,16 +53,22 @@ The Moon Phase Demo is a web development project designed to showcase the power 
     nvm install node
     ```
 
-4. **Install Dependencies**
-    ```bash
-    cargo install
-    npm install
-    ```
-
 5. **Run the Project**
     ```bash
-    cargo run
+    cargo run 
     ```
+
+## Development Tools
+   For automatic css build on change of files install [cargo-watch](https://github.com/watchexec/cargo-watch) and 
+   [cargo-mage](https://github.com/sagiegurari/cargo-make) and use this command. **It will build css and re-compile**
+   ```bash
+   cargo watch -x 'make dev' -i static/**
+   ```
+
+  For automatic testing I like to run them on a separate terminal
+  ```bash
+  cargo watch -x 'test --bins -lib'
+  ```
 
 ## Usage
 
