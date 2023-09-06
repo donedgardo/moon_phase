@@ -3,16 +3,12 @@ FROM rust:latest AS build
 
 # Create a new empty shell project to cache depenency builds
 RUN USER=root cargo new moon-phases
-RUN ls -al
-
-COPY ./Cargo.lock ./Cargo.lock
-COPY ./Cargo.toml ./Cargo.toml
 
 WORKDIR /moon-phases
 
-RUN ls -al
 # Copy over your manifests
-
+COPY ./Cargo.lock ./Cargo.lock
+COPY ./Cargo.toml ./Cargo.toml
 
 # Build this project, this will pull in all the dependencies and compile them
 RUN cargo build --release
