@@ -59,7 +59,7 @@ pub fn MoonAppMenu(cx: leptos::Scope) -> impl IntoView {
         </div>
         <div
           id="app"
-          class="mx-auto flex dark:hidden flex-col space-y-4"
+          class="mx-auto flex dark:hidden flex-col space-y-4 text-xl"
         >
           <p>Enable the night,</p>
           <p>Dark skies bring secret features,</p>

@@ -1,6 +1,7 @@
 use actix_web::{App, HttpServer, middleware};
 use actix_files as fs;
-use crate::router::{game, index};
+use crate::router::{home, game};
+
 mod router;
 
 #[actix_web::main]
@@ -11,8 +12,8 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(middleware::Logger::default())
             .service(fs::Files::new("/static", "./static"))
-            .service(index)
-            .service(game)
+            .service(home::get)
+            .service(game::get)
     })
         .bind(("0.0.0.0", 8080))?
         .run()

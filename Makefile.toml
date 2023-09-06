@@ -1,7 +1,3 @@
-[tasks.build]
-command = "cargo"
-args = ["build"]
-
 [tasks.run]
 command = "cargo"
 args = ["run",  "--bin=moon-phases"]
