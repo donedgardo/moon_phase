@@ -1,7 +1,6 @@
 use actix_web::{get, HttpResponse, Responder};
-use leptos::{component, IntoView};
-use moon_phases::moon::Moon;
-use std::time::SystemTime;
+use leptos::IntoView;
+use moon_phases::moon::MoonAppMenu;
 
 #[get("/")]
 async fn index() -> impl Responder {
@@ -21,30 +20,6 @@ async fn index() -> impl Responder {
         .body(html)
 }
 
-#[component]
-fn MoonAppMenu(cx: leptos::Scope) -> impl IntoView {
-    let moon = Moon::new(SystemTime::now());
-    let emoji = moon.phase_emoji();
-    let phase = moon.phase_name();
-    leptos::view! { cx,
-        <div
-          id="app"
-          class="mx-auto flex flex-col justify-center items-center space-y-4"
-        >
-          <p style="font-size: 180px">{emoji}</p>
-          <h1 class="text-3xl font-bold underline text-white text-center">Lunar Harvest</h1>
-          <h2 class="text-1xl font-bold text-white text-center">{phase}</h2>
-          <button
-            hx-get="/game"
-            hx-target="#app"
-            class="mx-auto px-4 py-1 text-1xl text-white font-semibold rounded-full border border-amber-300 hover:text-black hover:bg-amber-300 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2"
-          >
-            Start Game
-          </button>
-        </div>
-    }
-}
-
 #[get("/game")]
 async fn game() -> impl Responder {
     let html = leptos::ssr::render_to_string(|cx| leptos::view! { cx,
@@ -57,8 +32,8 @@ async fn game() -> impl Responder {
 
 #[cfg(test)]
 mod integration_tests {
+    use super::index;
     use actix_web::{test, App};
-    use crate::router::index;
 
     #[actix_web::test]
     async fn test_index_status() {
