@@ -6,6 +6,7 @@ RUN USER=root cargo new moon-phases
 RUN ls -al
 WORKDIR /moon-phases
 
+RUN ls -al
 # Copy over your manifests
 COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
