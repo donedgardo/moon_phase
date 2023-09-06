@@ -5,7 +5,7 @@ FROM rust:latest AS build
 RUN USER=root cargo new moon-phases
 RUN ls -al
 
-COPY ./Cargo.lock ./moon-phases/Cargo.lock
+COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
 
 WORKDIR /moon-phases
