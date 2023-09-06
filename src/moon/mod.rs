@@ -55,7 +55,9 @@ pub fn MoonAppMenu(cx: leptos::Scope) -> impl IntoView {
           <p style="font-size: 180px">{emoji}</p>
           <h1 class="text-6xl font-bold underline text-center">Lunar Harvest</h1>
           <h2 class="text-5xl font-bold text-center">{phase}</h2>
-          <p class="text-1xl text-center"><em>Come back on a a new moon.</em></p>
+          <p class="text-1xl text-center" hx-get="/game" hx-target="#app" hx-swap="outerHTML">
+            <em>Come back on a a new moon.</em>
+          </p>
         </div>
         <div
           id="app"
