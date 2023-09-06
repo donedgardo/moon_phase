@@ -1,4 +1,6 @@
 # Moon Phase 🌕🌖🌗🌘🌑
+![Continuous Deployment](https://github.com/donedgardo/moon_phase/actions/workflows/deploy.yml/badge.svg)
+
 
 ## Overview
 
