@@ -1,6 +1,6 @@
 use actix_web::{get, HttpResponse, Responder};
 use leptos::{component, IntoView};
-use moon_phases::Moon;
+use moon_phases::moon::Moon;
 use std::time::SystemTime;
 
 #[get("/")]
