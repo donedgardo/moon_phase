@@ -18,8 +18,8 @@ pub async fn get() -> impl Responder {
              rotation="1.21 0 -0.48"
              scale="0.01 0.01 0.01"
           ></a-entity>
-          <a-light type="directional" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
-             <a-entity id="directionaltarget" position="-1 0 -1"></a-entity>
+          <a-light type="directional" intensity="2.47" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
+             <a-entity id="directionaltarget" position="1 0 0"></a-entity>
           </a-light>
           <a-entity
             environment="preset: starry; playArea: 1.2; ground: hills; grid: none;"
