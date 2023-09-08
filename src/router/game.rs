@@ -1,7 +1,12 @@
+use std::time::SystemTime;
 use actix_web::{get, HttpResponse, Responder};
+use leptos::IntoAttribute;
+use moon_phases::moon::Moon;
 
 #[get("/game")]
 pub async fn get() -> impl Responder {
+    let moon = Moon::new(SystemTime::now());
+    let pos = moon.get_sun_relative_position();
     let html = leptos::ssr::render_to_string(|cx| leptos::view! { cx,
         <a-scene cursor="rayOrigin: mouse">
           <a-assets>
@@ -12,15 +17,19 @@ pub async fn get() -> impl Responder {
               light="color: #fff; intensity: .2; type: ambient;"
           ></a-camera>
           <a-entity
+             id="moon-obj"
              gltf-model="#moon"
              modify-materials
-             position="-0.48859 38.86 -46.69"
+             position="-0.48859 35 -46.69"
              rotation="1.21 0 -0.48"
-             scale="0.01 0.01 0.01"
-          ></a-entity>
-          <a-light type="directional" intensity="2.47" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
-             <a-entity id="directionaltarget" position="1 0 0"></a-entity>
-          </a-light>
+             scale="0.01 0.01 0.01">
+            <a-light
+              type="directional"
+              intensity="2.47"
+              position=move || format!("{} {} {}", pos[0], pos[1], pos[2])
+              target="#moon-obj">
+            </a-light>
+            </a-entity>
           <a-entity
             environment="preset: starry; playArea: 1.2; ground: hills; grid: none;"
           ></a-entity>
