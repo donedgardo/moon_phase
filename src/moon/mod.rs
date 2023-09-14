@@ -1,13 +1,11 @@
 use std::time::SystemTime;
 use moon_calc::Moon as MoonImpl;
-use leptos::{component, IntoView};
+use leptos::IntoView;
+
+pub mod component;
 
 pub struct Moon {
     moon: MoonImpl,
-}
-
-impl Moon {
-
 }
 
 impl Moon {
@@ -23,13 +21,22 @@ impl Moon {
         self.moon.phase_emoji()
     }
     pub fn get_sun_relative_position(&self) -> Vec<f32> {
-        if self.moon.phase_name() == "New Moon" {
-            vec![0., 1., -1.]
-        } else if self.moon.phase_name() == "Full Moon"  {
-            vec![0., -1., 1.]
-        } else {
-            vec![-1., 0., 0. ]
+        match self.moon.phase_emoji() {
+            "🌑" => vec![0., 1., -1.],
+            "🌒" => vec![1., 0., -0.5],
+            "🌓" =>  vec![1., 0., 0.],
+            "🌔" => vec![1., 0., 1.],
+            "🌕" =>  vec![0., -1., 1.],
+            "🌖" => vec![-1., -1., 1.],
+            "🌗" =>  vec![-1., 0., 0.],
+            "🌘" =>  vec![-1., 0., -0.5],
+            &_ => vec![0., 0., 0.]
         }
+    }
+
+    // in earth radii
+    pub fn distance_from_earth_km(&self) -> f64 {
+        self.moon.distance_km()
     }
 }
 
@@ -72,7 +79,15 @@ mod moon_tests {
         let moon = Moon::new(date.into());
         assert_eq!(moon.phase_name(), "Last Quarter");
         assert_eq!(moon.get_sun_relative_position(), vec![-1., 0., 0.]);
-
+        assert_eq!(moon.distance_from_earth_km(), 389790.7303662425)
+    }
+    #[test]
+    fn it_calculates_waning_crescent() {
+        let date = "2023-9-13T0:00:00z".parse::<DateTime<Utc>>().unwrap();
+        let moon = Moon::new(date.into());
+        assert_eq!(moon.get_sun_relative_position(), vec![-1., 0., -0.5]);
+        assert_eq!(moon.phase_name(), "Waning Crescent");
+        assert_eq!(moon.phase_emoji(), "🌘");
     }
 
     fn create_full_moon() -> Moon {
@@ -85,33 +100,5 @@ mod moon_tests {
         let date = "2023-9-15T13:00:00Z".parse::<DateTime<Utc>>().unwrap();
         let moon = Moon::new(date.into());
         moon
-    }
-}
-
-#[component]
-pub fn MoonAppMenu(cx: leptos::Scope) -> impl IntoView {
-    let moon = Moon::new(SystemTime::now());
-    let emoji = moon.phase_emoji();
-    let phase = moon.phase_name();
-    leptos::view! { cx,
-        <div
-          id="app"
-          class="mx-auto dark:flex hidden flex-col justify-center items-center space-y-4 text-stone-200"
-        >
-          <p style="font-size: 180px">{emoji}</p>
-          <h1 class="text-6xl font-bold underline text-center">Lunar Harvest</h1>
-          <h2 class="text-5xl font-bold text-center">{phase}</h2>
-          <p class="text-1xl text-center" hx-get="/game" hx-target="#app" hx-swap="outerHTML">
-            <em>Come back on a a new moon.</em>
-          </p>
-        </div>
-        <div
-          id="app"
-          class="mx-auto flex dark:hidden flex-col space-y-4 text-xl"
-        >
-          <p>Enable the night,</p>
-          <p>Dark skies bring secret features,</p>
-          <p>Mode of moon whispers.</p>
-        </div>
     }
 }
