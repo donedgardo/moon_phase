@@ -20,18 +20,18 @@ pub async fn get() -> impl Responder {
              id="moon-obj"
              gltf-model="#moon"
              modify-materials
-             position="-0.48859 35 -46.69"
+             position="0 35 -46.69"
              rotation="1.21 0 -0.48"
              scale="0.01 0.01 0.01">
             <a-light
               type="directional"
-              intensity="2.47"
+              intensity="4.47"
               position=move || format!("{} {} {}", pos[0], pos[1], pos[2])
               target="#moon-obj">
             </a-light>
-            </a-entity>
+          </a-entity>
           <a-entity
-            environment="preset: starry; playArea: 1.2; ground: hills; grid: none;"
+           environment="preset: starry; playArea: 1.2; ground: hills; grid: none; lightPosition: -5.12 -0.01 -2.68;"
           ></a-entity>
         </a-scene>
     });

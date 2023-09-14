@@ -1,6 +1,6 @@
 use actix_web::{get, HttpResponse, Responder};
 use leptos::{IntoView, view};
-use moon_phases::moon::MoonAppMenu;
+use moon_phases::moon::component::MoonAppMenu;
 
 #[get("/")]
 pub async fn get() -> impl Responder {
@@ -12,7 +12,7 @@ pub async fn get() -> impl Responder {
             <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
             <link href="/static/output.css" rel="stylesheet" />
           </head>
-          <body class="bg-white dark:bg-slate-800 flex items-center">
+          <body class="bg-white dark:bg-slate-800 flex items-center" hx-boost="true">
               <MoonAppMenu />
           </body>
         </html>

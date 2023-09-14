@@ -15,6 +15,7 @@ async fn main() -> std::io::Result<()> {
             .service(home::get)
             .service(game::get)
             .service(box_change::post)
+            .service(router::auth_get)
     })
         .bind(("0.0.0.0", 8080))?
         .run()
