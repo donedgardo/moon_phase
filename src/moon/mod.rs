@@ -1,6 +1,5 @@
 use std::time::SystemTime;
 use moon_calc::Moon as MoonImpl;
-use leptos::IntoView;
 
 pub mod component;
 

@@ -1,13 +1,24 @@
-use leptos::{component, IntoView};
+use leptos::*;
 use std::time::SystemTime;
 use crate::moon::Moon;
 
 #[component]
-pub fn MoonAppMenu(cx: leptos::Scope) -> impl IntoView {
+pub fn NewMoonHaiku(cx: Scope) -> impl IntoView {
+    view! { cx,
+        <p class="text-xl" hx-get="/game" hx-target="#app" hx-swap="outerHTML">
+          "New moon in the sky,"<br/>
+          "Code and dreams blend, take their flight,"<br />
+          "Fresh start, endless night."
+        </p>
+    }
+}
+
+#[component]
+pub fn MoonAppMenu(cx: Scope) -> impl IntoView {
     let moon = Moon::new(SystemTime::now());
     let emoji = moon.phase_emoji();
     let phase = moon.phase_name();
-    leptos::view! { cx,
+    view! { cx,
         <div
           id="app"
           class="mx-auto dark:flex hidden flex-col justify-center items-center space-y-4 text-stone-200"
@@ -15,9 +26,14 @@ pub fn MoonAppMenu(cx: leptos::Scope) -> impl IntoView {
           <p style="font-size: 180px">{emoji}</p>
           <h1 class="text-6xl font-bold underline text-center">Lunar Harvest</h1>
           <h2 class="text-5xl font-bold text-center">{phase}</h2>
-          <p class="text-1xl text-center" hx-get="/game" hx-target="#app" hx-swap="outerHTML">
-            <em>Come back on a a new moon.</em>
-          </p>
+          <Show
+            when=move || { emoji != "🌑" }
+            fallback=move |_| view!{cx,  <NewMoonHaiku /> }
+          >
+            <p class="text-3xl text-center" hx-get="/game" hx-target="#app" hx-swap="outerHTML">
+              <em>"Come back on a a new moon"</em>
+            </p>
+          </Show>
         </div>
         <div
           id="app"

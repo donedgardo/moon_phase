@@ -7,4 +7,4 @@ command = "cargo"
 args = ["run",  "--bin=build-css"]
 
 [tasks.dev]
-dependencies = ["custom-css", "run"]
+run_task = {name = ["custom-css", "run"], parallel = true }
