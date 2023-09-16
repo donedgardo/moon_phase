@@ -45,3 +45,31 @@ pub fn MoonAppMenu(cx: Scope) -> impl IntoView {
         </div>
     }
 }
+
+
+#[component]
+pub fn MoonRender(cx: Scope) -> impl IntoView {
+    let moon = Moon::new(SystemTime::now());
+    let pos = moon.get_sun_relative_position();
+    view! { cx,
+        <a-entity
+             id="moon-obj"
+             gltf-model="#moon"
+             modify-materials
+             position="0 35 -46.69"
+             rotation="1.21 0 -0.48"
+             scale="0.01 0.01 0.01"
+             hx-get="/game/moon/stats"
+             hx-trigger="mouseenter once"
+             hx-target="#hud"
+             hx-swap="outerHTML"
+        >
+            <a-light
+              type="directional"
+              intensity="4.47"
+              position=move || format!("{} {} {}", pos[0], pos[1], pos[2])
+              target="#moon-obj">
+            </a-light>
+        </a-entity>
+    }
+}
