@@ -63,8 +63,8 @@ The Moon Phase Demo is a web development project designed to showcase the power 
     ```
 
 ## Development Tools
-   For automatic css build on change of files install [cargo-watch](https://github.com/watchexec/cargo-watch) and 
-   [cargo-mage](https://github.com/sagiegurari/cargo-make) and use this command. **It will build css and re-compile**
+   For automatic css build, formatting on change of files install [cargo-watch](https://github.com/watchexec/cargo-watch), [leptosfmt](https://github.com/bram209/leptosfmt) and 
+   [cargo-make](https://github.com/sagiegurari/cargo-make) and use this command. **It will build css and re-compile**
    ```bash
    cargo watch -x 'make dev' -i static/**
    ```

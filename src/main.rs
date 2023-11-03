@@ -1,7 +1,8 @@
-use actix_web::{App, HttpServer, middleware};
+use crate::router::{auth, box_change, chat as chat_router, game, home, ws};
 use actix_files as fs;
-use crate::router::{home, game, box_change};
+use actix_web::{middleware, web, App, HttpServer};
 
+mod chat;
 mod router;
 
 #[actix_web::main]
@@ -16,9 +17,11 @@ async fn main() -> std::io::Result<()> {
             .service(game::get_game)
             .service(game::get_moon_stats)
             .service(box_change::post)
-            .service(router::auth_get)
+            .service(auth::auth_get)
+            .service(chat_router::chat_get)
+            .service(web::resource("/ws/").route(web::get().to(ws::ws_index)))
     })
-        .bind(("0.0.0.0", 8080))?
-        .run()
-        .await
+    .bind(("0.0.0.0", 8080))?
+    .run()
+    .await
 }

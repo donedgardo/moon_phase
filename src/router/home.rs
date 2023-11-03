@@ -1,22 +1,28 @@
 use actix_web::{get, HttpResponse, Responder};
-use leptos::{IntoView, view};
+use leptos::{view, IntoView};
 use moon_phases::moon::component::MoonAppMenu;
 
 #[get("/")]
 pub async fn get() -> impl Responder {
-    let html = leptos::ssr::render_to_string(|cx| view! { cx,
-        <html>
-          <head>
-            <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+    let html = leptos::ssr::render_to_string(|cx| {
+        view! { cx,
+            <html>
+                <head>
+                    <script
+                        src="https://unpkg.com/htmx.org@1.9.5"
+                        integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO"
+                        crossorigin="anonymous"
+                    ></script>
 
-            <link href="/static/output.css" rel="stylesheet" />
-          </head>
-          <body class="bg-white dark:bg-slate-800 flex items-center" hx-boost="true">
-              <MoonAppMenu />
-              <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-              <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
-          </body>
-        </html>
+                    <link href="/static/output.css" rel="stylesheet"/>
+                </head>
+                <body class="bg-white dark:bg-slate-800 flex items-center" hx-boost="true">
+                    <MoonAppMenu/>
+                    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+                    <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
+                </body>
+            </html>
+        }
     });
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
@@ -26,7 +32,7 @@ pub async fn get() -> impl Responder {
 #[cfg(test)]
 mod integration_tests {
     use super::*;
-    use actix_web::{App, test};
+    use actix_web::{test, App};
 
     #[actix_web::test]
     async fn test_index_status() {

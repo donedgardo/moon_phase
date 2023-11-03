@@ -1,8 +1,6 @@
-use std::time::SystemTime;
 use moon_calc::Moon as MoonImpl;
-
+use std::time::SystemTime;
 pub mod component;
-
 pub struct Moon {
     moon: MoonImpl,
 }
@@ -10,7 +8,7 @@ pub struct Moon {
 impl Moon {
     pub fn new(time: SystemTime) -> Self {
         Self {
-            moon: MoonImpl::new(time)
+            moon: MoonImpl::new(time),
         }
     }
     pub fn phase_name(&self) -> &'static str {
@@ -23,13 +21,13 @@ impl Moon {
         match self.moon.phase_emoji() {
             "🌑" => vec![0., 1., -1.],
             "🌒" => vec![1., 0., -0.5],
-            "🌓" =>  vec![1., 0., 0.],
+            "🌓" => vec![1., 0., 0.],
             "🌔" => vec![1., 0., 1.],
-            "🌕" =>  vec![0., -1., 1.],
+            "🌕" => vec![0., -1., 1.],
             "🌖" => vec![-1., -1., 1.],
-            "🌗" =>  vec![-1., 0., 0.],
-            "🌘" =>  vec![-1., 0., -0.5],
-            &_ => vec![0., 0., 0.]
+            "🌗" => vec![-1., 0., 0.],
+            "🌘" => vec![-1., 0., -0.5],
+            &_ => vec![0., 0., 0.],
         }
     }
 
@@ -59,14 +57,14 @@ mod moon_tests {
     }
 
     #[test]
-    fn it_calculates_sun_relative_position_for_new_moon () {
+    fn it_calculates_sun_relative_position_for_new_moon() {
         let moon = create_new_moon();
         let pos: Vec<f32> = moon.get_sun_relative_position();
         assert_eq!(pos, vec![0., 1., -1.]);
     }
 
     #[test]
-    fn it_calculates_sun_relative_position_for_full_moon () {
+    fn it_calculates_sun_relative_position_for_full_moon() {
         let moon = create_full_moon();
         let pos: Vec<f32> = moon.get_sun_relative_position();
         assert_eq!(pos, vec![0., -1., 1.]);

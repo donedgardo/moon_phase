@@ -6,5 +6,9 @@ args = ["run",  "--bin=moon-phases"]
 command = "cargo"
 args = ["run",  "--bin=build-css"]
 
+[tasks.leptos-rustfmt]
+command = "leptosfmt"
+args = ["./src"]
+
 [tasks.dev]
-run_task = {name = ["custom-css", "run"], parallel = true }
+run_task = {name = ["custom-css", "leptos-rustfmt", "run"], parallel = true }
