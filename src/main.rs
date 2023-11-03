@@ -19,7 +19,7 @@ async fn main() -> std::io::Result<()> {
             .service(box_change::post)
             .service(auth::auth_get)
             .service(chat_router::chat_get)
-            .service(web::resource("/ws/").route(web::get().to(ws::ws_index)))
+            .service(web::resource("/ws").route(web::get().to(ws::ws_index)))
     })
     .bind(("0.0.0.0", 8080))?
     .run()

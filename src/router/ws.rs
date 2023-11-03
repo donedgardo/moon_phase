@@ -1,6 +1,8 @@
 use actix::prelude::*;
 use actix_web::{web, Error, HttpRequest, HttpResponse};
 use actix_web_actors::ws;
+use leptos::{view, IntoView};
+use moon_phases::chat::AiChatMessage;
 
 /// Route to handle WebSocket connections
 pub async fn ws_index(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, Error> {
@@ -18,7 +20,17 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for MyWebSocket {
     fn handle(&mut self, msg: Result<ws::Message, ws::ProtocolError>, ctx: &mut Self::Context) {
         match msg {
             Ok(ws::Message::Ping(msg)) => ctx.pong(&msg),
-            Ok(ws::Message::Text(text)) => ctx.text(text),
+            Ok(ws::Message::Text(_)) => {
+                let msg = leptos::ssr::render_to_string(|cx| {
+                    view! { cx,
+                        <div hx-swap-oob="beforeend:#chat-history">
+                            <AiChatMessage/>
+                        </div>
+                    }
+                });
+                ctx.text(msg.clone());
+                ctx.text(msg);
+            }
             Ok(ws::Message::Binary(bin)) => ctx.binary(bin),
             _ => (),
         }

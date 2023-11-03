@@ -1,4 +1,4 @@
-use leptos::{component, IntoView, Scope, view};
+use leptos::{component, view, IntoView, Scope};
 
 #[component]
 pub fn ChatSideBar(cx: Scope) -> impl IntoView {
@@ -84,11 +84,11 @@ pub fn UserChatMessage(cx: Scope) -> impl IntoView {
 #[component]
 pub fn Chat(cx: Scope) -> impl IntoView {
     view! { cx,
-        <div class="flex flex-col flex-auto h-full p-6">
+        <div hx-ext="ws" ws-connect="/ws" class="flex flex-col flex-auto h-full p-6">
             <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4">
                 <div class="flex flex-col h-full overflow-x-auto mb-4">
                     <div class="flex flex-col h-full">
-                        <div class="grid grid-cols-12 gap-y-2">
+                        <div id="chat-history" class="grid grid-cols-12 gap-y-2">
                             <AiChatMessage/>
                             <UserChatMessage/>
                         </div>
@@ -114,9 +114,10 @@ pub fn Chat(cx: Scope) -> impl IntoView {
                         </button>
                     </div>
                     <div class="flex-grow ml-4">
-                        <div class="relative w-full">
+                        <form class="relative w-full m-0" id="chat-input" ws-send>
                             <input
                                 type="text"
+                                name="message"
                                 class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
                             />
                             <button class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
@@ -135,7 +136,7 @@ pub fn Chat(cx: Scope) -> impl IntoView {
                                     ></path>
                                 </svg>
                             </button>
-                        </div>
+                        </form>
                     </div>
                     <div class="ml-4">
                         <button class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
