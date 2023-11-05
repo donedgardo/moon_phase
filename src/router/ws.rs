@@ -5,6 +5,7 @@ use actix_web::{web, Error, HttpRequest, HttpResponse};
 use actix_web_actors::ws;
 use leptos::{view, IntoView};
 use moon_phases::chat::{AiChatMessage, UserChatMessage};
+use uuid::Uuid;
 
 pub async fn ws_index(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, Error> {
     let resp = ws::start(MyWebSocket {}, &req, stream)?;
@@ -32,20 +33,26 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for MyWebSocket {
                             }
                         });
                         ctx.text(user_chat_msg);
-                        let ai_chat_msg = leptos::ssr::render_to_string(|cx| {
+                        let my_uuid = Uuid::new_v4().to_string();
+                        let my_uuid_clone = my_uuid.clone();
+                        let ai_chat_msg = leptos::ssr::render_to_string(move |cx| {
                             view! { cx,
                                 <div hx-swap-oob="beforeend:#chat-history">
-                                    <AiChatMessage id=1/>
+                                    <AiChatMessage id=my_uuid_clone/>
                                 </div>
                             }
                         });
                         ctx.text(ai_chat_msg);
                         let addr = ctx.address();
                         tokio::spawn(async move {
-                            let url = "http://localhost:11434/api/generate";
-                            if let Err(err) =
-                                openai::consume_streaming_api(url, "llama2", &payload.message, addr)
-                                    .await
+                            if let Err(err) = openai::consume_streaming_api(
+                                "http://localhost:11434/api/generate",
+                                "dndai",
+                                &payload.message,
+                                addr,
+                                my_uuid.as_str(),
+                            )
+                            .await
                             {
                                 eprintln!("Error: {}", err);
                             }
