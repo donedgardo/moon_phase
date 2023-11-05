@@ -1,16 +1,17 @@
+use crate::openai::TextMessage;
+use crate::{chat, openai};
 use actix::prelude::*;
 use actix_web::{web, Error, HttpRequest, HttpResponse};
 use actix_web_actors::ws;
 use leptos::{view, IntoView};
-use moon_phases::chat::AiChatMessage;
+use moon_phases::chat::{AiChatMessage, UserChatMessage};
 
-/// Route to handle WebSocket connections
 pub async fn ws_index(req: HttpRequest, stream: web::Payload) -> Result<HttpResponse, Error> {
     let resp = ws::start(MyWebSocket {}, &req, stream)?;
     Ok(resp)
 }
 
-struct MyWebSocket;
+pub struct MyWebSocket;
 
 impl Actor for MyWebSocket {
     type Context = ws::WebsocketContext<Self>;
@@ -19,50 +20,70 @@ impl Actor for MyWebSocket {
 impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for MyWebSocket {
     fn handle(&mut self, msg: Result<ws::Message, ws::ProtocolError>, ctx: &mut Self::Context) {
         match msg {
-            Ok(ws::Message::Ping(msg)) => ctx.pong(&msg),
-            Ok(ws::Message::Text(_)) => {
-                let msg = leptos::ssr::render_to_string(|cx| {
-                    view! { cx,
-                        <div hx-swap-oob="beforeend:#chat-history">
-                            <AiChatMessage/>
-                        </div>
+            Ok(ws::Message::Text(payload)) => {
+                match chat::parse_payload(payload.to_string().as_str()) {
+                    Ok(payload) => {
+                        let message_clone = payload.message.clone();
+                        let user_chat_msg = leptos::ssr::render_to_string(move |cx| {
+                            view! { cx,
+                                <div hx-swap-oob="beforeend:#chat-history">
+                                    <UserChatMessage msg=message_clone/>
+                                </div>
+                            }
+                        });
+                        ctx.text(user_chat_msg);
+                        let ai_chat_msg = leptos::ssr::render_to_string(|cx| {
+                            view! { cx,
+                                <div hx-swap-oob="beforeend:#chat-history">
+                                    <AiChatMessage id=1/>
+                                </div>
+                            }
+                        });
+                        ctx.text(ai_chat_msg);
+                        let addr = ctx.address();
+                        tokio::spawn(async move {
+                            let url = "http://localhost:11434/api/generate";
+                            if let Err(err) =
+                                openai::consume_streaming_api(url, "llama2", &payload.message, addr)
+                                    .await
+                            {
+                                eprintln!("Error: {}", err);
+                            }
+                        });
                     }
-                });
-                ctx.text(msg.clone());
-                ctx.text(msg);
+                    Err(_) => ctx.text("Error parsing"),
+                }
             }
-            Ok(ws::Message::Binary(bin)) => ctx.binary(bin),
             _ => (),
         }
     }
 }
 
+impl Handler<TextMessage> for MyWebSocket {
+    type Result = ();
+    fn handle(&mut self, msg: TextMessage, ctx: &mut Self::Context) {
+        ctx.text(msg.0);
+    }
+}
+
 #[cfg(test)]
-mod tests {
+mod ws_tests {
     use super::*;
     use actix_web::App;
-    use actix_web_actors::ws;
-    use futures::StreamExt;
-    use futures_util::sink::SinkExt;
+    use futures_util::{SinkExt, StreamExt};
 
     #[actix_rt::test]
     async fn test_websocket() {
         let mut srv = actix_test::start(|| App::new().route("/ws/", web::get().to(ws_index)));
-
-        // Connect to the server
         let mut connection = srv.ws_at("/ws/").await.expect("Failed to connect");
-
-        // Send a text message
         let send_text = "Hello WebSocket!";
         connection
             .send(ws::Message::Text(send_text.into()))
             .await
             .expect("Failed to send message");
-
-        // Receive the message
         let msg = connection.next().await.expect("Failed to receive message");
         if let Ok(ws::Frame::Text(text)) = msg {
-            assert_eq!(send_text, text);
+            assert_eq!(text, "Error parsing");
         } else {
             panic!("Expected text frame");
         }

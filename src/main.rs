@@ -3,6 +3,7 @@ use actix_files as fs;
 use actix_web::{middleware, web, App, HttpServer};
 
 mod chat;
+mod openai;
 mod router;
 
 #[actix_web::main]

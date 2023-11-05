@@ -1,4 +1,5 @@
-use leptos::{component, view, IntoView, Scope};
+use leptos::{component, view, IntoAttribute, IntoView, Scope};
+use serde_derive::{Deserialize, Serialize};
 
 #[component]
 pub fn ChatSideBar(cx: Scope) -> impl IntoView {
@@ -50,7 +51,7 @@ pub fn ChatSideBar(cx: Scope) -> impl IntoView {
 }
 
 #[component]
-pub fn AiChatMessage(cx: Scope) -> impl IntoView {
+pub fn AiChatMessage(cx: Scope, id: u32) -> impl IntoView {
     view! { cx,
         <div class="col-start-1 col-end-8 p-3 rounded-lg">
             <div class="flex flex-row items-center">
@@ -58,7 +59,7 @@ pub fn AiChatMessage(cx: Scope) -> impl IntoView {
                     Ai
                 </div>
                 <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
-                    <div>"I am your D&D Ai assistant! Ask me anything!"</div>
+                    <div id=format!("ai-msg-{}", id)></div>
                 </div>
             </div>
         </div>
@@ -66,7 +67,7 @@ pub fn AiChatMessage(cx: Scope) -> impl IntoView {
 }
 
 #[component]
-pub fn UserChatMessage(cx: Scope) -> impl IntoView {
+pub fn UserChatMessage(cx: Scope, msg: String) -> impl IntoView {
     view! { cx,
         <div class="col-start-6 col-end-13 p-3 rounded-lg">
             <div class="flex items-center justify-start flex-row-reverse">
@@ -74,7 +75,7 @@ pub fn UserChatMessage(cx: Scope) -> impl IntoView {
                     E
                 </div>
                 <div class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
-                    <div>"What spells does Black Spider have?"</div>
+                    <div>{msg}</div>
                 </div>
             </div>
         </div>
@@ -88,10 +89,7 @@ pub fn Chat(cx: Scope) -> impl IntoView {
             <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4">
                 <div class="flex flex-col h-full overflow-x-auto mb-4">
                     <div class="flex flex-col h-full">
-                        <div id="chat-history" class="grid grid-cols-12 gap-y-2">
-                            <AiChatMessage/>
-                            <UserChatMessage/>
-                        </div>
+                        <div id="chat-history" class="grid grid-cols-12 gap-y-2"></div>
                     </div>
                 </div>
                 <div class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
@@ -163,4 +161,29 @@ pub fn Chat(cx: Scope) -> impl IntoView {
             </div>
         </div>
     }
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct WsChatPayload {
+    pub(crate) message: String,
+    #[serde(rename = "HEADERS")]
+    headers: Headers,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Headers {
+    #[serde(rename = "HX-Request")]
+    hx_request: String,
+    #[serde(rename = "HX-Trigger")]
+    hx_trigger: String,
+    #[serde(rename = "HX-Trigger-Name")]
+    hx_trigger_name: Option<String>,
+    #[serde(rename = "HX-Target")]
+    hx_target: String,
+    #[serde(rename = "HX-Current-URL")]
+    hx_current_url: String,
+}
+
+pub fn parse_payload(json_str: &str) -> Result<WsChatPayload, serde_json::Error> {
+    serde_json::from_str(json_str)
 }

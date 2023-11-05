@@ -16,6 +16,12 @@ env_logger = "0.10.0"
 leptos = {version= "0.4.10", features = ["ssr"] }
 log = "0.4.20"
 moon-calc = "1.0.0"
+reqwest = { version = "0.11.22", features = ["stream", "json"] }
+serde = "1.0.188"
+serde_derive = "1.0.190"
+serde_json = "1.0.105"
+tokio = { version = "1.33.0", features = ["full"] }
+tokio-stream = "0.1.14"
 
 [dev-dependencies]
 actix-rt = "2.9.0"
