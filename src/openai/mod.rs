@@ -91,9 +91,7 @@ mod openai_test {
     use super::*;
     #[tokio::test]
     async fn get_embeddings_returns_empty() {
-        let server = mockito::Server::new();
-        let host = server.url();
-        let embeddings = get_embeddings("", &host, "dndai").await.unwrap();
+        let embeddings = get_embeddings("", "", "dndai").await.unwrap();
         assert_eq!(embeddings.len(), 0);
     }
     #[tokio::test]
