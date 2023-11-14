@@ -78,7 +78,7 @@ pub async fn get_embeddings(content: &str, host: &str, model: &str) -> Result<Ve
         model: model.to_string(),
         prompt: content.to_string(),
     };
-    let mut response = client.post(format!("{host}/api/embeddings"))
+    let response = client.post(format!("{host}/api/embeddings"))
         .json(&payload).send().await?;
     match response.json::<EmbeddingApiResponse>().await {
         Ok(response) => Ok(response.embedding),
@@ -91,7 +91,7 @@ mod openai_test {
     use super::*;
     #[tokio::test]
     async fn get_embeddings_returns_empty() {
-        let mut server = mockito::Server::new();
+        let server = mockito::Server::new();
         let host = server.url();
         let embeddings = get_embeddings("", &host, "dndai").await.unwrap();
         assert_eq!(embeddings.len(), 0);
