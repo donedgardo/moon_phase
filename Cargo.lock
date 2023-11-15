@@ -813,6 +813,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "chromadb"
+version = "0.4.3"
+source = "git+https://github.com/donedgardo/chromadb-rs.git?branch=master#6ae464cc2f6016458169386551fa8493a28ecb63"
+dependencies = [
+ "anyhow",
+ "minreq",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "chrono"
 version = "0.4.28"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1916,6 +1927,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "minreq"
+version = "2.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cb3371dfc7b772c540da1380123674a8e20583aca99907087d990ca58cf44203"
+dependencies = [
+ "log",
+ "once_cell",
+ "rustls",
+ "rustls-webpki",
+ "serde",
+ "serde_json",
+ "webpki-roots",
+]
+
+[[package]]
 name = "mio"
 version = "0.8.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1963,6 +1989,7 @@ dependencies = [
  "actix-web",
  "actix-web-actors",
  "bevy_ecs",
+ "chromadb",
  "chrono",
  "env_logger",
  "futures",
@@ -3389,6 +3416,12 @@ dependencies = [
  "js-sys",
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "webpki-roots"
+version = "0.25.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "14247bb57be4f377dfb94c72830b8ce8fc6beac03cf4bf7b9732eadd414123fc"
 
 [[package]]
 name = "winapi"

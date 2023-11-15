@@ -16,7 +16,7 @@ pub struct GenerateApiResponse {
 
 #[derive(Debug, Serialize, Deserialize, Default)]
 pub struct EmbeddingApiResponse {
-    embedding: Vec<f64>
+    embedding: Vec<f32>
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -69,7 +69,7 @@ where
     Ok(())
 }
 
-pub async fn get_embeddings(content: &str, host: &str, model: &str) -> Result<Vec<f64>, reqwest::Error> {
+pub async fn get_embeddings(content: &str, host: &str, model: &str) -> Result<Vec<f32>, reqwest::Error> {
     if content.is_empty() {
         return Ok(vec![]);
     }
@@ -88,6 +88,8 @@ pub async fn get_embeddings(content: &str, host: &str, model: &str) -> Result<Ve
 
 #[cfg(test)]
 mod openai_test {
+    use chromadb::v1::{ChromaClient};
+    use chromadb::v1::collection::{CollectionEntries, QueryOptions};
     use super::*;
     #[tokio::test]
     async fn get_embeddings_returns_empty() {
@@ -107,5 +109,45 @@ mod openai_test {
         let embeddings = get_embeddings("hello!", &host, "dndai").await.unwrap();
         mock.assert();
         assert_eq!(embeddings.len(), 1);
+    }
+
+    #[ignore]
+    #[tokio::test]
+    async fn stores_embeddings_chroma_integration() {
+        let client = ChromaClient::new(Default::default());
+        let create_collection_response = client.get_or_create_collection("SRD-test", None);
+        assert!(create_collection_response.is_ok());
+        let collection = create_collection_response.unwrap();
+        let pdf_chunk = "Mage Armor";
+        let pdf_chunk_2 = "Shield";
+        let embedded_pdf_chunk = get_embeddings(pdf_chunk, "http://localhost:11434", "dndai").await.unwrap();
+        let embedded_pdf_chunk_2 = get_embeddings(pdf_chunk_2, "http://localhost:11434", "dndai").await.unwrap();
+        let collection_entries = CollectionEntries {
+            ids: vec![pdf_chunk, pdf_chunk_2],
+            embeddings: Some(vec![embedded_pdf_chunk, embedded_pdf_chunk_2]),
+            metadatas: None,
+            documents: Some(vec![
+                pdf_chunk.into(),
+                pdf_chunk_2.into()
+            ])
+        };
+        let collection_upsert_result = collection.upsert(collection_entries, None);
+        assert!(collection_upsert_result.is_ok());
+
+        let prompt = "Mage spells";
+        let embedded_prompt =
+            get_embeddings(prompt, "http://localhost:11434", "dndai").await.unwrap();
+        let similarity_query = QueryOptions {
+            query_texts: None,
+            query_embeddings: Some(vec![embedded_prompt]),
+            where_metadata: None,
+            where_document: None,
+            n_results: Some(1),
+            include: None,
+        };
+        let query_result = collection.query(similarity_query, None).unwrap();
+        println!("{:?}", query_result);
+        assert!(query_result.documents.is_some());
+        assert_eq!(query_result.ids[0][0], "Mage Armor");
     }
 }

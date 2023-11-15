@@ -11,6 +11,7 @@ actix-test = "0.1.2"
 actix-web = "4.4.0"
 actix-web-actors = "4.2.0"
 bevy_ecs = "0.11.2"
+chromadb = { git= "https://github.com/donedgardo/chromadb-rs.git", branch = "master" }
 chrono = "0.4.28"
 env_logger = "0.10.0"
 leptos = {version= "0.4.10", features = ["ssr"] }
