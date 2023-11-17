@@ -38,6 +38,8 @@ impl StreamHandler<Result<ws::Message, ws::ProtocolError>> for MyWebSocket {
                         let ai_chat_msg = leptos::ssr::render_to_string(move |cx| {
                             view! { cx,
                                 <div hx-swap-oob="beforeend:#chat-history">
+                                    // hx-on="htmx:oobAfterSwap: this.scrollIntoView(false)"
+
                                     <AiChatMessage id=my_uuid_clone/>
                                 </div>
                             }

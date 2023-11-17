@@ -1,0 +1,856 @@
+Legal Information
+Permission	to	copy,	modify	and	distribute	the	files
+collectively	known	as	the	System	Reference
+Document	5.1 (“SRD5”)	is	granted	solely	through	the
+use	of	the	Open	Gaming	License,	Version	1.0a.
+This	material	is	being	released	using	the	Open
+Gaming	License	Version	1.0a	and	you	should	read
+and	understand	the	terms	of	that	license	before
+using	this	material.
+The	text	of	the	Open	Gaming	License	itself	is	not
+Open	Game	Content.	Instructions	on	using the
+License	are	provided	within	the	License	itself.
+The	following	items	are	designated	Product	Identity,
+as	defined	in	Section	1(e)	of	the	Open	Game	License
+Version	1.0a,	and	are	subject	to	the	conditions	set
+forth	in	Section	7	of	the	OGL,	and	are	not	Open
+Content:	Dungeons	&	Dragons,	D&D,	Player’s
+Handbook,	Dungeon	Master,	Monster	Manual,	d20
+System,	Wizards	of	the	Coast,	d20	(when	used	as	a
+trademark),	Forgotten	Realms,	Faerûn,	proper
+names	(including	those	used	in	the	names	of	spells
+or	items),	places,	Underdark,	Red	Wizard	of	Thay,
+the	City	of	Union,	Heroic	Domains	of	Ysgard,	EverChanging	Chaos	of	Limbo,	Windswept	Depths	of
+Pandemonium,	Infinite	Layers	of	the	Abyss,
+Tarterian	Depths	of	Carceri,	Gray	Waste	of	Hades,
+Bleak	Eternity	of	Gehenna,	Nine	Hells	of	Baator,
+Infernal	Battlefield	of	Acheron,	Clockwork	Nirvana
+of	Mechanus,	Peaceable	Kingdoms	of	Arcadia,	Seven
+Mounting	Heavens	of	Celestia,	Twin	Paradises	of
+Bytopia,	Blessed	Fields	of	Elysium,	Wilderness	of	the
+Beastlands,	Olympian	Glades	of	Arborea, Concordant
+Domain	of	the	Outlands,	Sigil,	Lady	of	Pain,	Book	of
+Exalted	Deeds,	Book	of	Vile	Darkness,	beholder,
+gauth,	carrion	crawler,	tanar’ri,	baatezu,	displacer
+beast,	githyanki,	githzerai,	mind	flayer,	illithid,
+umber	hulk,	yuan-ti.
+All	of	the	rest	of	the	SRD5	is	Open	Game	Content	as
+described	in	Section	1(d)	of	the	License.
+The	terms	of	the	Open	Gaming	License	Version	1.0a
+are	as	follows:
+OPEN	GAME	LICENSE	Version	1.0a
+The	following	text	is	the	property	of	Wizards	of	the
+Coast,	Inc.	and	is	Copyright	2000	Wizards	of	the
+Coast,	Inc	("Wizards").	All	Rights	Reserved.
+1.	Definitions:	(a)"Contributors"	means	the
+copyright	and/or	trademark	owners	who	have
+contributed	Open	Game	Content;	(b)"Derivative
+Material"	means	copyrighted	material	including
+derivative	works	and	translations	(including	into
+other	computer	languages),	potation,	modification,
+correction,	addition,	extension,	upgrade,
+improvement,	compilation,	abridgment	or	other
+form	in	which	an	existing	work	may	be	recast,
+transformed	or	adapted; (c)	"Distribute"	means	to
+reproduce,	license,	rent,	lease,	sell,	broadcast,
+publicly	display,	transmit	or	otherwise	distribute;
+(d)"Open	Game	Content"	means	the	game	mechanic
+and	includes	the	methods,	procedures,	processes
+and	routines	to	the	extent	such	content	does	not
+embody	the	Product	Identity	and	is	an	enhancement
+over	the	prior	art	and	any	additional	content	clearly
+identified	as	Open	Game	Content	by	the	Contributor,
+and	means	any	work	covered	by	this	License,
+including	translations	and	derivative	works	under
+copyright	law,	but	specifically	excludes	Product
+Identity.	(e)	"Product	Identity"	means	product	and
+product	line	names,	logos	and	identifying	marks
+including	trade	dress;	artifacts;	creatures	characters;
+stories,	storylines,	plots,	thematic	elements,	dialogue,
+incidents,	language,	artwork,	symbols,	designs,
+depictions,	likenesses,	formats,	poses,	concepts,
+themes	and	graphic,	photographic	and	other	visual
+or	audio	representations;	names	and	descriptions	of
+characters,	spells,	enchantments,	personalities,
+teams,	personas,	likenesses	and	special	abilities;
+places,	locations,	environments,	creatures,
+equipment,	magical	or	supernatural	abilities	or
+effects,	logos,	symbols,	or	graphic	designs;	and	any
+other	trademark	or	registered	trademark	clearly
+identified	as	Product	identity	by	the	owner	of	the
+Product	Identity,	and	which	specifically	excludes	the
+Open	Game	Content;	(f)	"Trademark"	means	the
+logos,	names,	mark,	sign,	motto,	designs	that	are
+used	by	a	Contributor	to	identify	itself	or	its
+products	or the	associated	products	contributed	to
+the	Open	Game	License	by	the	Contributor	(g)	"Use",
+"Used"	or	"Using"	means	to	use,	Distribute,	copy,	edit,
+format,	modify,	translate	and	otherwise	create
+Derivative	Material	of	Open	Game	Content.	(h)	"You"
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 2
+or	"Your" means	the	licensee	in	terms	of	this
+agreement.
+2.	The	License:	This	License	applies	to	any	Open
+Game	Content	that	contains	a	notice	indicating	that
+the	Open	Game	Content	may	only	be	Used	under	and
+in	terms	of	this	License.	You	must	affix	such	a	notice
+to	any	Open	Game	Content	that	you	Use.	No	terms
+may	be	added	to	or	subtracted	from	this	License
+except	as	described	by	the	License	itself.	No	other
+terms	or	conditions	may	be	applied	to	any	Open
+Game	Content	distributed	using	this	License.
+3.Offer	and	Acceptance:	By	Using	the	Open	Game
+Content	You	indicate	Your	acceptance	of	the	terms	of
+this	License.
+4.	Grant	and	Consideration:	In	consideration	for
+agreeing	to	use	this	License,	the	Contributors	grant
+You	a	perpetual,	worldwide,	royalty-free,	nonexclusive	license	with	the	exact	terms	of	this	License
+to	Use,	the	Open	Game	Content.
+5.Representation	of	Authority	to	Contribute:	If	You
+are	contributing	original	material	as	Open	Game
+Content,	You	represent	that	Your	Contributions	are
+Your	original	creation	and/or	You	have	sufficient
+rights	to	grant	the	rights	conveyed	by	this	License.
+6.Notice	of	License	Copyright:	You	must	update	the
+COPYRIGHT	NOTICE	portion	of	this	License	to
+include	the	exact	text	of	the	COPYRIGHT	NOTICE	of
+any	Open	Game	Content	You	are	copying,	modifying
+or	distributing,	and	You	must	add	the	title,	the
+copyright	date,	and	the	copyright	holder's	name	to
+the	COPYRIGHT	NOTICE	of	any	original	Open	Game
+Content	you	Distribute.
+7.	Use	of	Product	Identity:	You	agree	not	to	Use	any
+Product	Identity,	including	as	an	indication	as	to
+compatibility,	except	as	expressly	licensed	in
+another,	independent	Agreement	with	the	owner	of
+each	element	of	that	Product	Identity.	You	agree	not
+to	indicate	compatibility	or	co-adaptability	with	any
+Trademark	or	Registered	Trademark	in	conjunction
+with	a	work	containing	Open	Game	Content	except
+as	expressly	licensed	in	another,	independent
+Agreement	with	the	owner	of	such	Trademark	or
+Registered	Trademark.	The	use	of	any	Product
+Identity	in	Open	Game	Content	does	not	constitute	a
+challenge	to	the	ownership	of	that	Product	Identity.
+The	owner	of	any	Product	Identity	used	in	Open
+Game	Content	shall	retain	all	rights,	title	and	interest
+in	and	to	that	Product	Identity.
+8.	Identification:	If	you	distribute	Open	Game
+Content	You	must	clearly	indicate	which	portions	of
+the	work	that	you	are	distributing	are	Open	Game
+Content.
+9.	Updating	the	License:	Wizards	or	its	designated
+Agents	may	publish	updated	versions	of	this	License.
+You	may	use	any	authorized	version	of	this	License
+to	copy,	modify	and	distribute	any	Open	Game
+Content	originally	distributed	under	any	version	of
+this	License.
+10.	Copy	of	this	License:	You	MUST	include	a	copy	of
+this	License	with	every	copy	of	the	Open	Game
+Content	You	Distribute.
+11.	Use	of	Contributor	Credits:	You	may	not	market
+or	advertise	the	Open	Game	Content	using	the	name
+of	any	Contributor	unless	You	have	written
+permission	from	the	Contributor	to	do	so.
+12.	Inability	to	Comply:	If	it	is	impossible	for	You	to
+comply	with	any	of	the	terms	of	this	License	with
+respect	to	some	or	all	of	the	Open	Game	Content	due
+to	statute,	judicial	order,	or	governmental	regulation
+then	You	may	not	Use	any	Open	Game	Material	so
+affected.
+13.	Termination:	This	License	will	terminate
+automatically	if	You	fail	to	comply	with	all	terms
+herein	and	fail	to	cure	such	breach	within	30	days	of
+becoming	aware	of	the	breach.	All	sublicenses	shall
+survive	the	termination	of	this	License.
+14.	Reformation:	If	any	provision	of	this	License	is
+held	to	be	unenforceable,	such	provision	shall	be
+reformed	only	to	the	extent	necessary	to	make	it
+enforceable.
+15.	COPYRIGHT	NOTICE
+Open	Game	License	v	1.0a	Copyright	2000,	Wizards
+of	the	Coast,	LLC.
+System	Reference	Document	5.1 Copyright	2016,
+Wizards	of	the	Coast,	Inc.;	Authors	Mike	Mearls,
+Jeremy	Crawford,	Chris	Perkins,	Rodney	Thompson,
+Peter	Lee,	James	Wyatt,	Robert	J.	Schwalb,	Bruce	R.
+Cordell,	Chris	Sims,	and	Steve	Townshend,	based	on
+original	material	by	E.	Gary	Gygax	and	Dave	Arneson.
+END	OF	LICENSE
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 3
+If	you	note	any	errors	in	this	document,	please	let	us	know	by
+emailing	askdnd@wizards.com.
+Races
+Racial Traits
+The	description	of	each	race	includes	racial	traits
+that	are	common	to	members	of	that	race.	The
+following	entries	appear	among	the	traits	of	most
+races.
+Ability Score Increase
+Every	race	increases	one	or	more	of	a	character’s
+ability	scores.
+Age
+The	age	entry	notes	the	age	when	a	member	of the
+race	is	considered	an	adult,	as	well	as	the	race’s
+expected	lifespan.	This	information	can	help	you
+decide	how	old	your	character	is	at	the	start	of	the
+game.	You	can	choose	any	age	for	your	character,
+which	could	provide	an	explanation	for	some	of	your
+ability	scores.	For	example,	if	you	play	a	young	or
+very	old	character,	your	age	could	explain	a
+particularly	low	Strength	or	Constitution	score,
+while	advanced	age	could	account	for	a	high
+Intelligence	or	Wisdom.
+Alignment
+Most	races	have	tendencies	toward	certain
+alignments,	described	in	this	entry.	These	are	not
+binding	for	player	characters,	but	considering	why
+your	dwarf	is	chaotic,	for	example,	in	defiance	of
+lawful	dwarf	society	can	help	you	better	define	your
+character.
+Size
+Characters	of	most	races	are	Medium,	a	size	category
+including	creatures	that	are	roughly	4	to	8	feet	tall.
+Members	of	a	few	races	are	Small	(between	2	and	4
+feet	tall),	which	means	that	certain	rules	of	the	game
+affect	them	differently.	The	most	important	of	these
+rules	is	that	Small	characters	have	trouble	wielding
+heavy	weapons,	as	explained	in	“Equipment.”
+Speed
+Your	speed	determines	how	far	you	can	move	when
+traveling	(	“Adventuring”)	and	fighting	(“Combat”).
+Languages
+By	virtue	of	your	race,	your	character	can	speak,
+read,	and	write	certain	languages.
+Subraces
+Some	races	have	subraces.	Members	of	a	subrace
+have	the	traits	of	the	parent	race	in	addition	to	the
+traits	specified	for	their	subrace.	Relationships
+among	subraces	vary	significantly	from	race	to	race
+and	world	to	world.
+Dwarf
+Dwarf Traits
+Your	dwarf	character	has	an	assortment	of	inborn
+abilities,	part	and	parcel	of	dwarven	nature.
+Ability	Score	Increase. Your	Constitution	score
+increases	by	2.
+Age.	Dwarves	mature	at	the	same	rate	as	humans,
+but	they’re	considered	young	until	they	reach	the
+age	of	50.	On	average,	they	live	about	350	years.
+Alignment.	Most	dwarves	are	lawful,	believing
+firmly	in	the	benefits	of	a	well-ordered	society.	They
+tend	toward	good	as	well,	with	a	strong	sense	of	fair
+play	and	a	belief	that	everyone	deserves	to	share	in
+the	benefits	of	a	just	order.
+Size. Dwarves	stand	between	4	and	5	feet	tall	and
+average	about	150	pounds.	Your	size	is	Medium.
+Speed. Your	base	walking	speed	is	25	feet.	Your
+speed	is	not	reduced	by	wearing	heavy	armor.
+Darkvision. Accustomed	to	life	underground,	you
+have	superior	vision	in	dark	and	dim	conditions.	You
+can	see	in	dim	light	within	60	feet	of	you	as	if	it	were
+bright	light,	and	in	darkness	as	if	it	were	dim	light.
+You	can’t	discern	color	in	darkness,	only	shades	of
+gray.
+Dwarven	Resilience.	You	have	advantage	on
+saving	throws	against	poison,	and	you	have
+resistance	against	poison	damage.
+Dwarven	Combat	Training. You	have	proficiency
+with	the	battleaxe,	handaxe,	light	hammer,	and
+warhammer.
+Tool	Proficiency. You	gain	proficiency	with	the
+artisan’s	tools	of	your	choice:	smith’s	tools,	brewer’s
+supplies,	or	mason’s	tools.
+Stonecunning.	Whenever	you	make	an
+Intelligence	(History)	check	related	to	the	origin	of
+stonework,	you	are	considered	proficient	in	the
+History	skill	and	add	double	your	proficiency	bonus
+to	the	check,	instead	of	your	normal	proficiency
+bonus.
+Languages. You	can	speak,	read,	and	write
+Common	and	Dwarvish.	Dwarvish	is	full	of	hard
+consonants	and	guttural	sounds,	and	those
+characteristics	spill	over	into	whatever	other
+language	a	dwarf	might	speak.
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 4
+Hill Dwarf
+As	a	hill	dwarf,	you	have	keen	senses,	deep	intuition,
+and	remarkable	resilience.
+Ability	Score	Increase.	Your	Wisdom	score
+increases	by	1.
+Dwarven	Toughness. Your	hit	point	maximum
+increases	by	1,	and	it	increases	by	1	every	time	you
+gain	a	level.
+Elf
+Elf Traits
+Your	elf	character	has	a	variety	of	natural	abilities,
+the	result	of	thousands	of	years	of	elven	refinement.
+Ability	Score	Increase.	Your	Dexterity	score
+increases	by 2.
+Age. Although	elves	reach	physical	maturity	at
+about	the	same	age	as	humans,	the	elven
+understanding	of	adulthood	goes	beyond	physical
+growth	to	encompass	worldly	experience.	An	elf
+typically	claims	adulthood	and	an	adult	name
+around	the	age	of	100	and	can	live	to	be	750	years
+old.
+Alignment. Elves	love	freedom,	variety,	and	selfexpression,	so	they	lean	strongly	toward	the	gentler
+aspects	of	chaos.	They	value	and	protect	others’
+freedom	as	well	as	their	own,	and	they	are	more
+often	good	than	not.
+Size. Elves	range	from	under	5	to	over	6	feet	tall
+and	have	slender	builds.	Your	size	is	Medium.
+Speed. Your	base	walking	speed	is	30	feet.
+Darkvision. Accustomed	to	twilit	forests	and	the
+night	sky,	you	have	superior	vision	in	dark	and	dim
+conditions.	You can	see	in	dim	light	within	60	feet	of
+you	as	if	it	were	bright	light,	and	in	darkness	as	if	it
+were	dim	light.	You	can’t	discern	color	in	darkness,
+only	shades	of	gray.
+Keen	Senses.	You	have	proficiency	in	the
+Perception	skill.
+Fey	Ancestry. You	have	advantage	on	saving
+throws	against	being	charmed,	and	magic	can’t	put
+you	to	sleep.
+Trance. Elves	don’t	need	to	sleep.	Instead,	they
+meditate	deeply,	remaining	semiconscious,	for	4
+hours	a	day.	(The	Common	word	for	such	meditation
+is	“trance.”)	While	meditating,	you	can	dream	after	a
+fashion;	such	dreams	are	actually	mental	exercises
+that	have	become	reflexive	through	years	of	practice.
+After	resting	in	this	way,	you	gain	the	same	benefit
+that	a	human	does	from	8	hours	of	sleep.
+Languages. You	can	speak,	read,	and	write
+Common	and	Elvish.	Elvish	is	fluid,	with	subtle
+intonations	and	intricate	grammar.	Elven	literature
+is	rich	and	varied,	and	their	songs	and	poems	are
+famous	among	other	races.	Many	bards	learn	their
+language	so	they	can	add	Elvish	ballads	to their
+repertoires.
+High Elf
+As	a	high	elf,	you	have	a	keen	mind	and	a	mastery	of
+at	least	the	basics	of	magic.	In	many	fantasy	gaming
+worlds,	there	are	two	kinds	of	high	elves.	One	type	is
+haughty	and	reclusive,	believing	themselves	to	be
+superior	to	non-elves	and	even	other	elves.	The
+other	type	is	more	common	and	more	friendly,	and
+often	encountered	among	humans	and	other	races.
+Ability	Score	Increase. Your	Intelligence	score
+increases	by	1.
+Elf	Weapon	Training.	You	have	proficiency	with
+the	longsword, shortsword,	shortbow,	and	longbow.
+Cantrip. You	know	one	cantrip	of	your	choice
+from	the	wizard	spell	list.	Intelligence	is	your
+spellcasting	ability	for	it.
+Extra	Language.	You	can	speak,	read,	and	write
+one	extra	language	of	your	choice.
+Halfling
+Halfling Traits
+Your	halfling	character	has	a	number	of	traits	in
+common	with	all	other	halflings.
+Ability	Score	Increase. Your	Dexterity	score
+increases	by	2.
+Age.	A	halfling	reaches	adulthood	at	the	age	of	20
+and	generally	lives	into	the	middle	of	his	or	her
+second	century.
+Alignment. Most	halflings	are	lawful	good.	As	a
+rule,	they	are	good-hearted	and	kind,	hate	to	see
+others	in	pain,	and	have	no	tolerance	for	oppression.
+They	are	also	very	orderly	and	traditional,	leaning
+heavily	on	the	support	of	their community	and	the
+comfort	of	their	old	ways.
+Size. Halflings	average	about	3	feet	tall	and	weigh
+about	40	pounds.	Your	size	is	Small.
+Speed. Your	base	walking	speed	is	25	feet.
+Lucky. When	you	roll	a	1	on	the	d20	for	an	attack
+roll,	ability	check,	or	saving	throw,	you	can	reroll	the
+die	and	must	use	the	new	roll.
+Brave. You	have	advantage	on	saving	throws
+against	being	frightened.
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 5
+Halfling	Nimbleness.	You	can	move	through	the
+space	of	any	creature	that	is	of	a	size	larger	than
+yours.
+Languages. You	can	speak,	read,	and	write
+Common	and	Halfling.	The	Halfling	language	isn’t
+secret,	but	halflings	are	loath	to	share	it	with	others.
+They	write	very	little,	so	they	don’t	have	a	rich	body
+of	literature.	Their	oral	tradition,	however,	is	very
+strong.	Almost	all	halflings	speak	Common	to
+converse	with	the	people	in	whose	lands	they	dwell
+or	through	which	they	are	traveling.
+Lightfoot
+As	a	lightfoot	halfling,	you	can	easily	hide	from
+notice,	even	using	other	people	as	cover.	You’re
+inclined	to	be	affable	and	get	along	well	with	others.
+Lightfoots	are	more	prone	to	wanderlust	than
+other	halflings,	and	often	dwell	alongside	other	races
+or	take	up	a	nomadic	life.
+Ability	Score	Increase. Your	Charisma	score
+increases	by	1.
+Naturally	Stealthy. You	can	attempt	to	hide	even
+when	you	are	obscured	only	by	a	creature	that	is	at
+least	one	size	larger	than	you.
+Human
+Human Traits
+It’s	hard	to	make	generalizations	about	humans,	but
+your	human	character	has	these	traits.
+Ability	Score	Increase.	Your	ability	scores	each
+increase	by	1.
+Age. Humans	reach	adulthood	in	their	late	teens
+and	live	less	than	a	century.
+Alignment. Humans	tend	toward	no	particular
+alignment.	The	best	and	the	worst	are	found	among
+them.
+Size. Humans	vary	widely	in	height	and	build,
+from	barely	5	feet	to	well	over	6	feet	tall.	Regardless
+of	your	position	in	that	range,	your	size	is	Medium.
+Speed. Your	base	walking	speed	is	30	feet.
+Languages. You	can	speak,	read,	and	write
+Common	and	one	extra	language	of	your	choice.
+Humans	typically	learn	the	languages	of	other
+peoples	they	deal	with,	including	obscure	dialects.
+They	are	fond	of	sprinkling	their	speech	with	words
+borrowed	from	other	tongues:	Orc	curses,	Elvish
+musical	expressions,	Dwarvish	military	phrases,	and
+so	on.
+Dragonborn
+Dragonborn Traits
+Your	draconic	heritage	manifests	in	a	variety	of
+traits	you	share	with	other	dragonborn.
+Ability	Score	Increase. Your	Strength	score
+increases	by	2,	and	your	Charisma	score	increases
+by 1.
+Age.	Young	dragonborn	grow	quickly.	They	walk
+hours	after	hatching,	attain	the	size	and
+development	of	a	10-year-old	human	child	by	the
+age	of	3,	and	reach	adulthood	by	15.	They	live	to	be
+around	80.
+Alignment. Dragonborn	tend	to	extremes,	making
+a	conscious	choice	for	one	side	or	the	other	in	the
+cosmic	war	between	good	and	evil.	Most	dragonborn
+are	good,	but	those	who	side	with	evil	can	be	terrible
+villains.
+Size. Dragonborn	are	taller	and	heavier	than
+humans,	standing	well	over	6	feet	tall	and	averaging
+almost	250	pounds.	Your	size	is	Medium.
+Speed. Your	base	walking	speed	is	30	feet.
+Draconic	Ancestry
+Dragon Damage	Type Breath	Weapon
+Black Acid 5	by	30	ft.	line	(Dex.	save)
+Blue Lightning 5	by	30	ft.	line	(Dex.	save)
+Brass Fire 5	by	30	ft.	line	(Dex.	save)
+Bronze Lightning 5	by	30	ft.	line	(Dex.	save)
+Copper Acid 5	by	30	ft.	line	(Dex.	save)
+Gold Fire 15	ft.	cone	(Dex.	save)
+Green Poison 15	ft.	cone	(Con.	save)
+Red Fire 15	ft.	cone	(Dex.	save)
+Silver Cold 15	ft.	cone	(Con.	save)
+White Cold 15	ft.	cone	(Con.	save)
+Draconic	Ancestry. You	have	draconic	ancestry.
+Choose	one	type	of	dragon	from	the	Draconic
+Ancestry	table.	Your	breath	weapon	and	damage
+resistance	are	determined	by	the	dragon	type,	as
+shown	in	the	table.
+Breath	Weapon. You	can	use	your	action	to
+exhale	destructive	energy.	Your	draconic	ancestry
+determines	the	size,	shape,	and	damage	type	of	the
+exhalation.
+When	you	use	your	breath	weapon,	each	creature
+in	the	area	of	the	exhalation	must	make	a	saving
+throw,	the	type	of	which	is	determined	by	your
+draconic	ancestry.	The	DC	for	this	saving	throw
+equals	8	+	your	Constitution	modifier	+	your
+proficiency	bonus.	A	creature	takes	2d6	damage	on	a
+failed	save,	and	half	as	much	damage	on	a	successful
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 6
+one.	The	damage	increases	to	3d6	at	6th	level,	4d6	at
+11th	level,	and	5d6	at	16th	level.
+After	you	use	your	breath	weapon,	you	can’t	use	it
+again	until	you	complete	a	short	or	long	rest.
+Damage	Resistance.	You	have	resistance	to	the
+damage	type	associated	with	your	draconic	ancestry.
+Languages. You	can	speak,	read,	and	write
+Common	and	Draconic.	Draconic	is	thought	to	be	one
+of	the	oldest	languages	and	is	often	used	in	the	study
+of	magic.	The	language	sounds	harsh	to	most	other
+creatures	and	includes	numerous	hard	consonants
+and	sibilants.
+Gnome
+Gnome Traits
+Your	gnome	character	has	certain	characteristics	in
+common	with	all	other	gnomes.
+Ability	Score	Increase. Your	Intelligence	score
+increases	by	2.
+Age. Gnomes	mature	at	the	same	rate	humans	do,
+and	most	are	expected	to	settle	down	into	an	adult
+life	by	around	age	40.	They	can	live	350	to	almost
+500	years.
+Alignment. Gnomes	are	most	often	good.	Those
+who	tend	toward	law	are	sages,	engineers,
+researchers, scholars,	investigators,	or	inventors.
+Those	who	tend	toward	chaos	are	minstrels,
+tricksters,	wanderers,	or	fanciful	jewelers.	Gnomes
+are	good-hearted,	and	even	the	tricksters	among
+them	are	more	playful	than	vicious.
+Size. Gnomes	are	between	3	and	4	feet	tall	and
+average	about	40	pounds.	Your	size	is	Small.
+Speed. Your	base	walking	speed	is	25	feet.
+Darkvision. Accustomed	to	life	underground, you
+have	superior	vision	in	dark	and	dim	conditions.	You
+can	see	in	dim	light	within	60	feet	of	you	as	if	it	were
+bright	light,	and	in	darkness	as	if	it	were	dim	light.
+You	can’t	discern	color	in	darkness,	only	shades	of
+gray.
+Gnome	Cunning. You	have	advantage	on	all
+Intelligence,	Wisdom,	and	Charisma	saving	throws
+against	magic.
+Languages. You	can	speak,	read,	and	write
+Common	and	Gnomish.	The	Gnomish	language,
+which	uses	the	Dwarvish	script,	is	renowned	for	its
+technical	treatises	and	its	catalogs	of	knowledge
+about	the	natural	world.
+Rock Gnome
+As	a	rock	gnome,	you	have	a	natural	inventiveness
+and	hardiness	beyond	that	of	other	gnomes.
+Ability	Score	Increase. Your	Constitution	score
+increases	by	1.
+Artificer’s	Lore. Whenever	you	make	an
+Intelligence	(History)	check	related	to	magic	items,
+alchemical	objects,	or	technological	devices,	you	can
+add	twice	your	proficiency	bonus,	instead	of	any
+proficiency	bonus	you	normally	apply.
+Tinker. You	have	proficiency	with	artisan’s	tools
+(tinker’s	tools).	Using	those	tools,	you	can	spend	1
+hour	and	10	gp	worth	of	materials	to	construct	a
+Tiny	clockwork	device	(AC	5,	1	hp).	The	device
+ceases	to	function	after	24	hours	(unless	you	spend
+1	hour	repairing	it	to	keep	the	device	functioning),
+or	when	you	use	your	action	to	dismantle	it;	at	that
+time,	you	can	reclaim	the	materials	used	to	create	it.
+You	can	have	up	to	three	such	devices	active	at	a
+time.
+When	you	create	a	device,	choose	one	of	the
+following	options:
+Clockwork	Toy.	This	toy	is	a	clockwork	animal,
+monster,	or	person,	such	as	a	frog,	mouse,	bird,
+dragon,	or	soldier.	When	placed	on	the	ground,	the
+toy	moves	5	feet	across	the	ground	on	each	of	your
+turns	in	a	random	direction.	It	makes	noises	as
+appropriate	to	the	creature	it	represents.
+Fire	Starter.	The	device	produces	a	miniature	flame,
+which	you	can	use	to	light	a	candle,	torch,	or
+campfire.	Using	the	device	requires	your	action.
+Music	Box.	When	opened,	this	music	box	plays	a
+single	song	at	a	moderate	volume.	The	box	stops
+playing	when	it	reaches	the	song’s	end	or	when	it
+is	closed.
+Half-Elf
+Half-Elf Traits
+Your	half-elf	character	has	some	qualities	in
+common	with	elves	and	some	that	are	unique	to
+half-elves.
+Ability	Score	Increase. Your	Charisma	score
+increases	by	2,	and	two	other	ability	scores	of	your
+choice	increase	by	1.
+Age.	Half-elves	mature	at	the	same	rate	humans
+do	and	reach	adulthood	around	the	age	of	20.	They
+live	much	longer	than	humans,	however,	often
+exceeding	180	years.
+Alignment.	Half-elves	share	the	chaotic	bent	of
+their	elven	heritage.	They	value	both	personal
+freedom	and	creative	expression,	demonstrating
+neither	love	of	leaders	nor	desire	for	followers.	They
+chafe	at	rules,	resent	others’	demands,	and
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 7
+sometimes	prove	unreliable,	or	at	least
+unpredictable.
+Size.	Half-elves	are	about	the	same	size	as	humans,
+ranging	from	5	to	6	feet	tall.	Your	size	is	Medium.
+Speed. Your	base	walking	speed	is	30	feet.
+Darkvision. Thanks	to	your	elf	blood,	you	have
+superior	vision	in	dark	and	dim	conditions.	You	can
+see	in	dim	light	within	60	feet	of	you	as	if	it	were
+bright	light,	and	in	darkness	as	if	it	were	dim	light.
+You	can’t	discern	color	in	darkness,	only	shades	of
+gray.
+Fey	Ancestry.	You	have	advantage	on	saving
+throws	against	being	charmed,	and	magic	can’t	put
+you	to	sleep.
+Skill	Versatility.	You	gain	proficiency	in	two	skills
+of	your	choice.
+Languages.	You	can	speak,	read,	and	write
+Common,	Elvish,	and	one	extra	language	of	your
+choice.
+Half-Orc
+Half-Orc Traits
+Your	half-orc	character	has	certain	traits	deriving
+from	your	orc	ancestry.
+Ability	Score	Increase.	Your	Strength	score
+increases	by	2,	and	your	Constitution	score	increases
+by	1.
+Age.	Half-orcs	mature	a	little	faster	than	humans,
+reaching	adulthood	around	age	14.	They	age
+noticeably	faster	and	rarely	live	longer	than	75	years.
+Alignment.	Half-orcs	inherit	a	tendency	toward
+chaos	from	their	orc	parents	and	are	not	strongly
+inclined	toward	good.	Half-orcs	raised	among	orcs
+and	willing	to	live	out	their	lives	among	them	are
+usually	evil.
+Size.	Half-orcs	are	somewhat	larger	and	bulkier
+than	humans,	and	they	range	from	5	to	well	over	6
+feet	tall.	Your	size	is	Medium.
+Speed.	Your	base	walking	speed	is	30	feet.
+Darkvision.	Thanks	to	your	orc	blood,	you	have
+superior	vision	in	dark	and	dim	conditions.	You	can
+see	in	dim	light	within	60	feet	of	you	as	if	it	were
+bright	light,	and	in	darkness	as	if	it	were	dim	light.
+You	can’t	discern	color	in	darkness,	only	shades	of
+gray.
+Menacing.	You	gain	proficiency	in	the
+Intimidation	skill.
+Relentless	Endurance.	When	you	are	reduced	to	0
+hit	points	but	not	killed	outright,	you	can	drop	to	1
+hit	point	instead.	You	can’t	use	this	feature	again
+until	you	finish	a	long	rest.
+Savage	Attacks.	When	you	score	a	critical	hit	with
+a	melee	weapon	attack,	you	can	roll	one	of	the
+weapon’s	damage	dice	one	additional	time	and	add	it
+to	the	extra	damage	of	the	critical	hit.
+Languages.	You	can	speak,	read,	and	write
+Common	and	Orc.	Orc	is	a	harsh,	grating	language
+with	hard	consonants.	It	has	no	script	of	its	own	but
+is	written	in	the	Dwarvish	script.
+Tiefling
+Tiefling Traits
+Tieflings	share	certain	racial	traits	as	a	result	of	their
+infernal descent.
+Ability	Score	Increase.	Your	Intelligence	score
+increases	by	1,	and	your	Charisma	score	increases
+by	2.
+Age. Tieflings	mature	at	the	same	rate	as	humans
+but	live	a	few	years	longer.
+Alignment. Tieflings	might	not	have	an	innate
+tendency	toward evil,	but	many	of	them	end	up
+there.	Evil	or	not,	an	independent	nature	inclines
+many	tieflings	toward	a	chaotic	alignment.
+Size.	Tieflings	are	about	the	same	size	and	build	as
+humans.	Your	size	is	Medium.
+Speed.	Your	base	walking	speed	is	30	feet.
+Darkvision.	Thanks	to	your	infernal	heritage,	you
+have	superior	vision	in	dark	and	dim	conditions.	You
+can	see	in	dim	light	within	60	feet	of	you	as	if	it	were
+bright	light,	and	in	darkness	as	if	it	were	dim	light.
+You	can’t	discern	color	in	darkness,	only shades	of
+gray.
+Hellish	Resistance.	You	have	resistance	to	fire
+damage.
+Infernal	Legacy.	You	know	the	thaumaturgy
+cantrip.	When	you	reach	3rd	level,	you	can	cast	the
+hellish	rebuke	spell	as	a	2nd-level	spell	once	with	this
+trait	and	regain	the	ability	to	do	so	when	you	finish	a
+long	rest.	When	you	reach	5th	level,	you	can	cast	the
+darkness spell	once	with	this	trait	and	regain	the
+ability	to	do	so	when	you	finish	a	long	rest.	Charisma
+is	your	spellcasting	ability	for	these	spells.
+Languages.	You	can	speak,	read,	and	write
+Common	and	Infernal.
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 8
+Barbarian
+Class Features
+As	a	barbarian,	you	gain	the	following	class	features.
+Hit Points
+Hit	Dice: 1d12	per	barbarian	level
+Hit	Points	at	1st	Level: 12	+	your	Constitution
+modifier
+Hit	Points	at	Higher	Levels: 1d12	(or	7)	+	your
+Constitution	modifier	per	barbarian	level	after	1st
+Proficiencies
+Armor: Light	armor,	medium	armor,	shields
+Weapons: Simple	weapons,	martial	weapons
+Tools: None
+Saving	Throws: Strength,	Constitution
+Skills:	Choose	two	from	Animal	Handling,	Athletics,
+Intimidation,	Nature,	Perception,	and	Survival
+Equipment
+You	start	with	the	following	equipment,	in	addition
+to	the	equipment	granted	by	your	background:
+• (a)	a	greataxe	or	(b)	any	martial	melee	weapon
+• (a) two	handaxes	or	(b)	any	simple	weapon
+• An	explorer’s	pack	and	four	javelins
+The	Barbarian
+Level
+Proficiency
+Bonus Features Rages
+Rage
+Damage
+1st +2 Rage,
+Unarmored
+Defense
+2 +2
+2nd +2 Reckless
+Attack,
+Danger	Sense
+2 +2
+3rd +2 Primal	Path 3 +2
+4th +2 Ability	Score
+Improvement
+3 +2
+5th +3 Extra	Attack,
+Fast
+Movement
+3 +2
+6th +3 Path	feature 4 +2
+7th +3 Feral	Instinct 4 +2
+8th +3 Ability	Score
+Improvement
+4 +2
+9th +4 Brutal	Critical
+(1	die)
+4 +3
+10th +4 Path	feature 4 +3
+11th +4 Relentless	 4 +3
+Rage
+12th +4 Ability	Score
+Improvement
+5 +3
+13th +5 Brutal	Critical
+(2	dice)
+5 +3
+14th +5 Path	feature 5 +3
+15th +5 Persistent
+Rage
+5 +3
+16th +5 Ability	Score
+Improvement
+5 +4
+17th +6 Brutal	Critical
+(3	dice)
+6 +4
+18th +6 Indomitable
+Might
+6 +4
+19th +6 Ability	Score
+Improvement
+6 +4
+20th +6 Primal
+Champion
+Unlimited +4
+Rage
+In	battle,	you	fight	with	primal	ferocity.	On	your	turn,
+you	can	enter	a	rage	as	a	bonus	action.
+While	raging,	you	gain	the	following	benefits	if	you
+aren’t	wearing	heavy	armor:
+• You	have	advantage	on	Strength	checks	and
+Strength	saving	throws.
+• When	you	make	a	melee	weapon	attack	using
+Strength,	you	gain	a	bonus	to	the	damage	roll	that
+increases	as	you	gain	levels	as	a	barbarian,	as
+shown	in	the	Rage	Damage	column	of	the
+Barbarian	table.
+• You	have	resistance	to	bludgeoning,	piercing,	and
+slashing	damage.
+If	you	are	able	to	cast	spells,	you	can’t	cast	them	or
+concentrate	on	them	while	raging.
+Your	rage	lasts	for	1	minute.	It	ends	early	if	you
+are	knocked	unconscious	or	if	your turn	ends	and
+you	haven’t	attacked	a	hostile	creature	since	your
+last	turn	or	taken	damage	since	then.	You	can	also
+end	your	rage	on	your	turn	as	a	bonus	action.
+Once	you	have	raged	the	number	of	times	shown
+for	your	barbarian	level	in	the	Rages	column	of	the
+Barbarian	table,	you	must	finish	a	long	rest	before
+you	can	rage	again.
+Unarmored Defense
+While	you	are	not	wearing	any	armor,	your	Armor
+Class	equals	10	+	your	Dexterity	modifier	+	your
+Constitution	modifier.	You	can	use	a	shield	and	still
+gain	this benefit.
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 9
+Reckless Attack
+Starting	at	2nd	level,	you	can	throw	aside	all	concern
+for	defense	to	attack	with	fierce	desperation.	When
+you	make	your	first	attack	on	your	turn,	you	can
+decide	to	attack	recklessly.	Doing	so	gives	you
+advantage	on	melee	weapon	attack	rolls	using
+Strength	during	this	turn,	but	attack	rolls	against
+you	have	advantage	until	your	next	turn.
+Danger Sense
+At	2nd	level,	you	gain	an	uncanny	sense	of	when
+things	nearby	aren’t	as	they	should	be,	giving	you	an
+edge	when	you	dodge	away	from danger.
+You	have	advantage	on	Dexterity	saving	throws
+against	effects	that	you	can	see,	such	as	traps	and
+spells.	To	gain	this	benefit,	you	can’t	be	blinded,
+deafened,	or	incapacitated.
+Primal Path
+At	3rd	level,	you	choose	a	path	that	shapes	the
+nature	of	your	rage.	Choose	the	Path	of	the
+Berserker	or	the	Path	of	the	Totem	Warrior,	both
+detailed	at	the	end	of	the	class	description.	Your
+choice	grants	you	features	at	3rd	level	and	again	at
+6th,	10th,	and	14th	levels.
+Ability Score Improvement
+When	you	reach	4th	level,	and	again	at	8th,	12th,
+16th,	and	19th	level,	you	can	increase	one	ability
+score	of	your	choice	by	2,	or	you	can	increase	two
+ability	scores	of	your	choice	by	1.	As	normal,	you
+can’t	increase	an	ability	score	above	20	using	this
+feature.
+Extra Attack
+Beginning	at	5th	level,	you	can	attack	twice,	instead
+of	once,	whenever	you	take	the	Attack	action	on	your
+turn.
+Fast Movement
+Starting	at	5th	level,	your	speed	increases	by	10	feet
+while	you	aren’t	wearing	heavy	armor.
+Feral Instinct
+By	7th	level, your	instincts	are	so	honed	that	you
+have	advantage	on	initiative	rolls.
+Additionally,	if	you	are	surprised	at	the	beginning
+of	combat	and	aren’t	incapacitated,	you	can	act
+normally	on	your	first	turn,	but	only	if	you	enter
+your	rage	before	doing	anything	else	on	that	turn.
+Brutal Critical
+Beginning	at	9th	level,	you	can	roll	one	additional
+weapon	damage	die	when	determining	the	extra
+damage	for	a	critical	hit	with	a	melee	attack.
+This	increases	to	two	additional	dice	at	13th	level
+and	three	additional	dice	at	17th	level.
+Relentless Rage
+Starting	at	11th	level,	your	rage	can	keep	you
+fighting	despite	grievous	wounds.	If	you	drop	to	0	hit
+points	while	you’re	raging	and	don’t	die	outright,
+you	can	make	a	DC	10	Constitution	saving	throw.	If
+you	succeed,	you	drop	to	1	hit	point	instead.
+Each	time	you	use	this	feature	after	the	first,	the
+DC	increases	by	5.	When	you	finish	a	short	or	long
+rest,	the	DC	resets	to	10.
+Persistent Rage
+Beginning	at	15th	level,	your	rage	is	so	fierce	that	it
+ends	early	only	if	you	fall	unconscious	or	if	you
+choose	to	end	it.
+Indomitable Might
+Beginning	at	18th	level,	if	your	total	for	a	Strength
+check	is	less	than	your	Strength	score,	you	can	use
+that	score	in	place	of	the	total.
+Primal Champion
+At	20th	level,	you	embody	the	power	of the	wilds.
+Your	Strength	and	Constitution	scores	increase	by	4.
+Your	maximum	for	those	scores	is	now	24.
+Path of the Berserker
+For	some	barbarians,	rage	is	a	means	to	an	end—
+that	end	being	violence.	The	Path	of	the	Berserker	is
+a	path	of	untrammeled	fury, slick	with	blood.	As	you
+enter	the	berserker’s	rage,	you	thrill	in	the	chaos	of
+battle,	heedless	of	your	own	health	or	well-being.
+Frenzy
+Starting	when	you	choose	this	path	at	3rd	level,	you
+can	go	into	a	frenzy	when	you	rage.	If	you	do	so,	for
+the	duration	of	your	rage	you	can	make	a	single
+melee	weapon	attack	as	a	bonus	action	on	each	of
+your	turns	after	this	one.	When	your	rage	ends,	you
+suffer	one	level	of	exhaustion	(as	described	in
+appendix	PH-A).
+Not	for	resale.	Permission	granted	to	print	or	photocopy	this	document	for	personal	use	only. System	Reference	Document	5.1 10
+M

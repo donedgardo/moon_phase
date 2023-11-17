@@ -16,7 +16,10 @@ chrono = "0.4.28"
 env_logger = "0.10.0"
 leptos = {version= "0.4.10", features = ["ssr"] }
 log = "0.4.20"
+lopdf = "0.31.0"
 moon-calc = "1.0.0"
+pdf-extract = "0.7.2"
+rayon = "1.8.0"
 reqwest = { version = "0.11.22", features = ["stream", "json"] }
 serde = "1.0.188"
 serde_derive = "1.0.190"

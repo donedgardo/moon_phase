@@ -1,3 +1,5 @@
+
+mod pdf_text;
 use actix::dev::ToEnvelope;
 use actix::{Actor, Addr, Handler, Message};
 use actix_web_actors::ws::WebsocketContext;
@@ -16,7 +18,7 @@ pub struct GenerateApiResponse {
 
 #[derive(Debug, Serialize, Deserialize, Default)]
 pub struct EmbeddingApiResponse {
-    embedding: Vec<f32>
+    embedding: Vec<f32>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -36,9 +38,9 @@ pub async fn consume_streaming_api<T>(
     address: Addr<T>,
     id: &str,
 ) -> Result<(), reqwest::Error>
-where
-    T: Actor<Context = WebsocketContext<T>> + Handler<TextMessage, Result = ()>,
-    T::Context: ToEnvelope<T, TextMessage>,
+    where
+        T: Actor<Context=WebsocketContext<T>> + Handler<TextMessage, Result=()>,
+        T::Context: ToEnvelope<T, TextMessage>,
 {
     let client = Client::new();
     let payload = GenerateRequestPayload {
@@ -88,14 +90,19 @@ pub async fn get_embeddings(content: &str, host: &str, model: &str) -> Result<Ve
 
 #[cfg(test)]
 mod openai_test {
+    use std::path::Path;
     use chromadb::v1::{ChromaClient};
     use chromadb::v1::collection::{CollectionEntries, QueryOptions};
+    use pdf_extract::OutputError;
+    use crate::openai::pdf_text::get_pdf_text;
     use super::*;
+
     #[tokio::test]
     async fn get_embeddings_returns_empty() {
         let embeddings = get_embeddings("", "", "dndai").await.unwrap();
         assert_eq!(embeddings.len(), 0);
     }
+
     #[tokio::test]
     async fn get_embeddings_returns_vec() {
         let mut server = mockito::Server::new();
@@ -118,18 +125,21 @@ mod openai_test {
         let create_collection_response = client.get_or_create_collection("SRD-test", None);
         assert!(create_collection_response.is_ok());
         let collection = create_collection_response.unwrap();
+
         let pdf_chunk = "Mage Armor";
-        let pdf_chunk_2 = "Shield";
         let embedded_pdf_chunk = get_embeddings(pdf_chunk, "http://localhost:11434", "dndai").await.unwrap();
+
+        let pdf_chunk_2 = "Shield";
         let embedded_pdf_chunk_2 = get_embeddings(pdf_chunk_2, "http://localhost:11434", "dndai").await.unwrap();
+
         let collection_entries = CollectionEntries {
             ids: vec![pdf_chunk, pdf_chunk_2],
             embeddings: Some(vec![embedded_pdf_chunk, embedded_pdf_chunk_2]),
             metadatas: None,
             documents: Some(vec![
                 pdf_chunk.into(),
-                pdf_chunk_2.into()
-            ])
+                pdf_chunk_2.into(),
+            ]),
         };
         let collection_upsert_result = collection.upsert(collection_entries, None);
         assert!(collection_upsert_result.is_ok());
@@ -149,5 +159,18 @@ mod openai_test {
         println!("{:?}", query_result);
         assert!(query_result.documents.is_some());
         assert_eq!(query_result.ids[0][0], "Mage Armor");
+    }
+
+    #[test]
+    pub fn chunks_pdf_file() {
+        //let pdf_path = Path::new("dnd-books/SRD-OGL_V5.1.pdf");
+        let pdf_path = Path::new("tests/test.pdf");
+        let text_content = extract_pdf_text(pdf_path).unwrap();
+        assert_eq!(text_content, "\n\nTe s t".to_string());
+    }
+
+    fn extract_pdf_text(file_path: &Path) -> Result<String, OutputError> {
+        let bytes = std::fs::read(file_path).unwrap();
+        pdf_extract::extract_text(file_path)
     }
 }

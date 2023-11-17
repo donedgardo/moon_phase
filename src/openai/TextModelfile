@@ -1,0 +1,11 @@
+FROM dolphin2.2-mistral:7b-q6_K
+
+# set the temperature to 1 [higher is more creative, lower is more coherent]
+PARAMETER temperature 0
+
+# set the system prompt
+SYSTEM """
+You are a text formatting expert that takes the users text input which has bad formatting and spacing and you
+fix it perfectly.
+Only reply with the properly formatted text.
+"""
